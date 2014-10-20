@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+{% else %}
+    <p>Welcome, new user. Please log in.</p>
+{% endif %}
+
 {% for item in posts %}
-<h1>{{ item.title }}</h1>
-<p>{{ item.body }}</p>
+    <h1>{{ item.title }}</h1>
+    <p>{{ item.body }}</p>
 {% endfor %}
+
 {% endblock %}
